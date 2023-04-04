@@ -1,12 +1,16 @@
-const express = require('express')
-const app = express()
+import express from "express";										
+import cors from "cors";													
+import dotenv from "dotenv";	
+import filterRouter from "./filter/filterRouter.js";
 
-app.use(express.json())
-app.use(express.urlencoded({extended: true}))
+dotenv.config();
+const port = process.env.port || process.env.PORT || 5000; 
+const app = express(); 
 
-app.get('/', (req, res) => {
-  res.send('Welcome to known Vegan!')
-})
+app.use(express.json());											
+app.use(cors({ origin: /http:\/\/localhost/ }));  
+app.options('*', cors());													
 
-module.exports = app;
+app.use('/filter', filterRouter); 
 
+app.listen(port, () => { console.log(`Known Vegan API-Service listen on ${port}`) })
