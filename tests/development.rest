@@ -1,0 +1,6 @@
+@hostname = localhost
+@port = 5000
+@host = {{hostname}}:{{port}}
+@contentType = application/json
+
+get http://{{host}}/filter
