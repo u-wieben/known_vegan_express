@@ -6,7 +6,6 @@
     </BuildCommand>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="database\" />
     <Folder Include="filter\" />
   </ItemGroup>
 </Project>
