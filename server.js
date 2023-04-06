@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";	
 import filterRouter from "./filter/filterRouter.js";
 import recipesListRouter  from "./liste/listRouter.js"
+import recipesFilterRouter from "./recipes/recipesRouter.js";
 
 dotenv.config();
 const port = process.env.port || process.env.PORT || 5000; 
@@ -14,5 +15,6 @@ app.options('*', cors());
 
 app.use('/filter', filterRouter); 
 app.use("/list", recipesListRouter);
+app.use('/recipes', recipesFilterRouter);
 
 app.listen(port, () => { console.log(`Known Vegan API-Service listen on ${port}`) })
